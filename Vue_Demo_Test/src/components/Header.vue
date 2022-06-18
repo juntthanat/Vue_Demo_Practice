@@ -46,7 +46,7 @@ export default {
     </div>
 </template>
 
-<style>
+<style scoped>
 .test {
     height: 100vh;
     width: 100vw;
