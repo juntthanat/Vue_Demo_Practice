@@ -1,31 +1,71 @@
-<script setup>
-import { ref } from 'vue'
+<script>
+import { ref } from "vue";
+export default {
+    // setup() {
+    //     const isVisible = ref(false);
+    //     function toggle() {
+    //         this.isVisible = !this.isVisible;
+    //         console.log(this.isVisible)
+    //     }
+    //     return {
+    //         toggle,
+    //         isVisible,
+    //     };
+    // },
+    // ------------------------------------------------------------
+    setup() {
+        function toggle() {
+            const modal = document.querySelector(".modal");
+            if(modal.style.display == "none"){
+                modal.style.display = "block"
+            } else{
+                modal.style.display = "none"
+            }
+            console.log(modal);
+        }
+        return {
+            toggle,
+        };
+    },
+};
 </script>
 
 <template>
+    <!-- <div class="test">
+        <div class="container">
+            <button id="modal-button" v-on:click="toggle">Click me</button>
+        </div>
+        <div class="modal" v-if="isVisible"></div>
+    </div> -->
+    <!-- ----------------------------------------------------------------- -->
     <div class="test">
-        hello world2
-    </div>
-    <div class="hello-world">
-        hello world
+        <div class="container">
+            <button id="modal-button" v-on:click="toggle">Click me</button>
+        </div>
+        <div class="modal"></div>
     </div>
 </template>
 
 <style>
-.hello-world{
-    background-color: red;
-    position: relative;
-    /* width: 50%;
-    height: 50vh;
+.test {
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    background-color: gray;
+    width: 80%;
+    height: 80%;
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%); */
-    right: 60px;
+    transform: translate(-50%, -50%);
 }
-.test{
-    background-color: blue;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+
+.modal {
+    position: fixed;
+    height: 20%;
+    width: 20%;
+    background-color: red;
 }
 </style>
